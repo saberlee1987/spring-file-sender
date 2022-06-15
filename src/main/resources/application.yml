@@ -1,0 +1,41 @@
+server:
+  port: 9600
+  jetty:
+    threads:
+      min: 100
+      max: 3000
+      idle-timeout: 10000
+    connection-idle-timeout: 10000
+    accesslog:
+      enabled: true
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 50MB
+      max-request-size: 100MB
+      file-size-threshold: 5MB
+
+service:
+  api:
+    base-path: /services/spring-mvc
+  swagger:
+    base-path: /services/spring-mvc-docs/v3/api-docs
+    title: 'kyc'
+    description: 'kyc'
+    version: 'version1.0.0-1401/03/26 03:30'
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+    display-operation-id: true
+
+  api-docs:
+    path: ${service.swagger.base-path}
+    resolve-schema-properties: true
